@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IdeaBox</string>
+    <string name="action_settings">Settings</string>
 </resources>
