@@ -5,5 +5,5 @@ need to record it
 Designed specifically to take a note of sudden ideas in mind
 4. How do I use it? (installation instructions)
 download the project then open it using Android Studio Developer
-5. How does it work? Take note of sudden idea and view it later on
+5. How does it work? State title and description of the ideas, and can view it later
 
