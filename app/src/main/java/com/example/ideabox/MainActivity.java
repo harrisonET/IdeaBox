@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     SharedPreferences sharedPreferences;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         sharedPreferences = this.getSharedPreferences("com.example.ideabox", Context.MODE_PRIVATE);
+        scrollView = (ScrollView) findViewById(R.id.scroll);
         loadIdeas();
     }
 
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.edittext_border));
                 counter++;
             }
+        }
+    }
+
+    public void goToEditView(View view){
+        TextView textView = (TextView) view;
+        if (textView.getText().toString() != ""){
+            Intent intent = new Intent(this,EditActivity.class);
+            intent.putExtra("title",textView.getText().toString());
+            startActivity(intent);
         }
     }
 
