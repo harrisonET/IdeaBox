@@ -35,13 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadIdeas(){
         int counter = 0;
-
         Map<String,?> keys = sharedPreferences.getAll();
-
-        if (keys.size() == 0){
-              Toast.makeText(getApplicationContext(),"GONEEE", Toast.LENGTH_LONG).show();
-        }
-        else {
+        if (keys.size() != 0) {
             for (Map.Entry<String, ?> entry : keys.entrySet()) {
                 Log.i("map values", entry.getKey() + ": " +
                         entry.getValue().toString());
@@ -67,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.clear();
                         editor.commit();
+                        linearLayout.removeAllViews();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -74,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.i("Alert", "Cancelled");
                     }
                 }).show();
-        loadIdeas();
     }
 
 }
