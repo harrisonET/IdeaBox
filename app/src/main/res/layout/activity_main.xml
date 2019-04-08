@@ -15,6 +15,7 @@
         android:textSize="36sp" />
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp">
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:tag="0"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -39,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:tag="1"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -47,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:tag="2"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -55,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:tag="3"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -63,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:tag="4"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -71,6 +77,7 @@
                 android:layout_height="wrap_content"
                 android:tag="5"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -79,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:tag="6"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -87,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:tag="7"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -95,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:tag="8"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -103,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:tag="9"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -111,6 +122,7 @@
                 android:layout_height="wrap_content"
                 android:tag="10"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -119,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:tag="11"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
             <TextView
@@ -127,6 +140,7 @@
                 android:layout_height="wrap_content"
                 android:tag="12"
                 android:text=""
+                android:onClick="goToEditView"
                 android:textSize="40sp" />
 
 
