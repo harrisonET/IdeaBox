@@ -24,16 +24,31 @@ public class AddActivity extends AppCompatActivity {
     }
 
     public void addNew(View view){
-        SharedPreferences sharedPref = this.getSharedPreferences("com.example.ideabox", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
         String title = ideaEditTxt.getText().toString();
         String desc = descEditTxt.getText().toString();
-        editor.putString(title,desc);
-        Toast.makeText(getApplicationContext(), "Idea called " + title + " is created!!", Toast.LENGTH_SHORT).show();
-        editor.commit();
 
-        Intent intent = new Intent(this, MainActivity.class );
-        startActivity(intent);
+        if (ideaChecker(title,desc) == true) {
+            SharedPreferences sharedPref = this.getSharedPreferences("com.example.ideabox", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString(title, desc);
+            Toast.makeText(getApplicationContext(), "Idea called " + title + " is created!!", Toast.LENGTH_SHORT).show();
+            editor.commit();
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        ideaEditTxt.setText("");
+        descEditTxt.setText("");
+    }
+    public boolean ideaChecker(String title, String desc){
+        boolean ok = false;
+
+        if (title.isEmpty())
+            Toast.makeText(getApplicationContext(),"Cannot be empty!!!",Toast.LENGTH_LONG).show();
+        else
+            ok = true;
+
+        return ok;
     }
 
 }

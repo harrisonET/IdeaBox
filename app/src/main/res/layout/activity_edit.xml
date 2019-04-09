@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddActivity">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="123dp"
+            android:text="Description"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/editBtn"
+            android:layout_width="298dp"
+            android:layout_height="63dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="59dp"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="427dp"
+            android:onClick="edit"
+            android:text="Edit Idea"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="141dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="33dp"
+            android:text="Idea             "
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/descEditTxt"
+            android:layout_width="340dp"
+            android:layout_height="121dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="160dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:gravity="top|left"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/titleTxtView"
+            android:layout_width="248dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="122dp"
+            android:layout_marginTop="30dp"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
