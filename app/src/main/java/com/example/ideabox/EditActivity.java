@@ -27,6 +27,7 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void edit(View view){
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(titleTxtView.getText().toString(),descEditTxt.getText().toString());
         editor.commit();
