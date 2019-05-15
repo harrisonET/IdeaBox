@@ -1,70 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:fillViewport="true"
     tools:context=".AddActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="144dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="121dp"
-        android:text="Description"
-        android:textSize="24sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1300dp">
 
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="298dp"
-        android:layout_height="63dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="59dp"
-        android:layout_marginLeft="59dp"
-        android:layout_marginTop="427dp"
-        android:onClick="addNew"
-        android:text="Add New Idea"
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="11dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="121dp"
+                android:text="Description"
+                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="141dp"
-        android:layout_height="42dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginTop="35dp"
-        android:text="Idea             "
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="141dp"
+                android:layout_height="42dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="35dp"
+                android:text="Idea             "
+                android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/ideaEditTxt"
-        android:layout_width="236dp"
-        android:layout_height="37dp"
-        android:layout_alignTop="@+id/textView"
-        android:layout_marginStart="-41dp"
-        android:layout_marginTop="5dp"
-        android:layout_toEndOf="@+id/textView"
-        android:background="@drawable/edittext_border"
-        android:ems="10"
-        android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/ideaEditTxt"
+                android:layout_width="236dp"
+                android:layout_height="37dp"
+                android:layout_alignTop="@+id/textView"
+                android:layout_marginStart="-41dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/textView"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/descEditTxt"
-        android:layout_width="340dp"
-        android:layout_height="121dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="160dp"
-        android:background="@drawable/edittext_border"
-        android:ems="10"
-        android:gravity="top|left"
-        android:inputType="textMultiLine" />
+            <EditText
+                android:id="@+id/descEditTxt"
+                android:layout_width="340dp"
+                android:layout_height="121dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:gravity="top|left"
+                android:inputType="textMultiLine" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="296dp"
+                android:layout_height="43dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="353dp"
+                android:text="Set Number of Milestone"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="296dp"
+                android:layout_height="43dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="9dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="1100dp"
+                android:text="Category"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/catSpinner"
+                android:layout_width="62dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="1100dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="62dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="350dp" />
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="298dp"
+                android:layout_height="63dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="61dp"
+                android:layout_marginLeft="61dp"
+                android:layout_marginTop="1200dp"
+                android:onClick="addNew"
+                android:text="Add New Idea"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:id="@+id/milestoneLinear"
+                android:layout_width="375dp"
+                android:layout_height="675dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="390dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/displayCatView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="1150dp" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView5"-->
+            <!--android:layout_width="296dp"-->
+            <!--android:layout_height="43dp"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginStart="11dp"-->
+            <!--android:layout_marginLeft="11dp"-->
+            <!--android:layout_marginTop="633dp"-->
+            <!--android:text="Choose Category"-->
+            <!--android:textSize="24sp" />-->
+
+            <!--<Spinner-->
+            <!--android:id="@+id/catSpinner"-->
+            <!--android:layout_width="62dp"-->
+            <!--android:layout_height="44dp"-->
+            <!--android:layout_marginLeft="300dp"-->
+            <!--android:layout_marginTop="633dp" />-->
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
