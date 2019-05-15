@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<Idea>uIdeaList;
     static ArrayList<Idea>fIdeaList;
     static ArrayList<Idea>dIdeaList;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
         setUpViewPager(viewPager);
         tabLayout = (TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
+        fab = findViewById(R.id.fabAddIdea);
         eventsDB = this.openOrCreateDatabase("IdeaDB", MODE_PRIVATE, null);
         eventsDB.execSQL("CREATE TABLE IF NOT EXISTS Idea (name VARCHAR, data BLOB, id INTEGER PRIMARY KEY)");
+        //to erase all
+        //eventsDB.execSQL("DELETE FROM Idea");
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -73,16 +78,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), AddActivity.class);
+                    startActivity(intent);
+            }
+        });
+
         fillIdeaList();
-        //loadIdeas();
     }
 
     public void fillIdeaList(){
-        //displayDB();
+        Log.i("Test", "Displaying DB");
+        displayDB();
         loadDB();
 //        Log.i("U", uIdeaList.toString());
-//        Log.i("F", fIdeaList.toString());
-//        Log.i("D", dIdeaList.toString());
+//        Log.i("ForFunList", fIdeaList.toString());
+//        Log.i("DoingList", dIdeaList.toString());
 
     }
 
@@ -102,8 +116,9 @@ public class MainActivity extends AppCompatActivity {
                 Idea idea = (Idea) com.example.ideabox.ObjectSerializer.deserialize(c.getBlob(ideaIndex));
                 if (idea.getCategory().equals("Unlisted")){
                     uIdeaList.add(idea);
-                }else if (idea.getCategory().equals("For Fun"))
+                }else if (idea.getCategory().equals("For Fun")) {
                     fIdeaList.add(idea);
+                }
                 else if (idea.getCategory().equals("Doing")){
                     dIdeaList.add(idea);
                 }else{
@@ -167,11 +182,6 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("title",textView.getText().toString());
             startActivity(intent);
         }
-    }
-
-    public void addIdeas(View view){
-        Intent intent = new Intent(this, AddActivity.class);
-        startActivity(intent);
     }
 
 }

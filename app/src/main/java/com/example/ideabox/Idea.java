@@ -9,7 +9,7 @@ public class Idea implements Serializable{
     private String description;
     private List<Milestone>milestoneList;
     private String category;
-    private static final long serialVersionUID =  2810358442379433826L;
+    private static final long serialVersionUID =  7765409787296362742L;
 
     public Idea(String name, String description, List<Milestone> milestoneList) {
         this.name = name;
