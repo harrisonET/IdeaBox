@@ -10,11 +10,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +25,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
+View.OnFocusChangeListener{
 
     EditText ideaEditTxt;
     EditText descEditTxt;
@@ -30,6 +34,8 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     Spinner catSpinner;
     LinearLayout mileLinear;
     TextView displayCatView;
+//    RelativeLayout relativeLayout;
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +44,8 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         displayCatView  = (TextView)findViewById(R.id.displayCatView);
         ideaEditTxt = (EditText)findViewById(R.id.ideaEditTxt);
         descEditTxt =   (EditText)findViewById(R.id.descEditTxt);
-
+        //relativeLayout = (RelativeLayout)findViewById(R.id.relativeLayout);
+        linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         //milestone linearlayout
         mileLinear = (LinearLayout) findViewById(R.id.milestoneLinear);
 
@@ -58,10 +65,18 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinnerArray, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
+
+        //optional
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        ideaEditTxt.setOnFocusChangeListener(this);
+        descEditTxt.setOnFocusChangeListener(this);
+    }
 
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     public void addNew(View view){
@@ -124,7 +139,6 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     public boolean ideaChecker(String title, String desc){
@@ -187,5 +201,12 @@ public class AddActivity extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (!hasFocus) {
+            hideKeyboard(v);
+        }
     }
 }
