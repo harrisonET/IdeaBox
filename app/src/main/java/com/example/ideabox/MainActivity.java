@@ -1,30 +1,22 @@
 package com.example.ideabox;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.example.ideabox.KanbanFragment.DoingFragment;
+import com.example.ideabox.KanbanFragment.ForFunFragment;
+import com.example.ideabox.KanbanFragment.UnlistedFragment;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     static Fragment doingF;
     static SQLiteDatabase eventsDB;
     //idea list for each category
-    static ArrayList<Idea>uIdeaList;
-    static ArrayList<Idea>fIdeaList;
-    static ArrayList<Idea>dIdeaList;
+    public static ArrayList<Idea>uIdeaList;
+    public static ArrayList<Idea>fIdeaList;
+    public static ArrayList<Idea>dIdeaList;
     FloatingActionButton fab;
 
     @Override
