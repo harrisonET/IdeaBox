@@ -1,12 +1,9 @@
 package com.example.ideabox;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,12 +12,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ideabox.Model.Idea;
+import com.example.ideabox.Model.Milestone;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +31,6 @@ View.OnFocusChangeListener{
     Spinner catSpinner;
     LinearLayout mileLinear;
     TextView displayCatView;
-//    RelativeLayout relativeLayout;
     LinearLayout linearLayout;
 
     @Override
@@ -95,7 +91,7 @@ View.OnFocusChangeListener{
         }
 
         String category;
-        //get get category
+        //get category
         switch (displayCatView.getText().toString()){
             case "Unlisted":category = "Unlisted";Log.i("Tag", "Unlisted Cat");break;
             case "For Fun":category = "For Fun";Log.i("Tag", "For Fun Cat"); break;
