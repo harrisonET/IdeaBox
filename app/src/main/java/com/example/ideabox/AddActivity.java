@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.ideabox.Model.Idea;
 import com.example.ideabox.Model.Milestone;
+import com.example.ideabox.Serializer.ObjectSerializer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +106,7 @@ View.OnFocusChangeListener{
             String sql = "INSERT INTO Idea (name,data) VALUES (?, ?)";
             SQLiteStatement statement = MainActivity.eventsDB.compileStatement(sql);
             try {
-                byte[] objByte = com.example.ideabox.ObjectSerializer.serialize(idea);
+                byte[] objByte = ObjectSerializer.serialize(idea);
                 statement.bindString(1, idea.getName());
                 statement.bindBlob(2,objByte);
                 statement.execute();
@@ -128,7 +129,7 @@ View.OnFocusChangeListener{
         try {
             while (c != null) {
                 Log.i("Name: ", c.getString(nameIndex));
-                Log.i("Data: ", com.example.ideabox.ObjectSerializer.deserialize(c.getBlob(ideaIndex)).toString());
+                Log.i("Data: ", ObjectSerializer.deserialize(c.getBlob(ideaIndex)).toString());
                 Log.i("Id: ", Integer.toString(c.getInt(idIndex)));
                 c.moveToNext();
             }

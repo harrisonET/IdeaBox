@@ -1,4 +1,4 @@
-package com.example.ideabox;
+package com.example.ideabox.Serializer;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;

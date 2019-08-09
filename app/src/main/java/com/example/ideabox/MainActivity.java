@@ -1,5 +1,4 @@
 package com.example.ideabox;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,10 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.ideabox.Adapter.SectionsPageAdapter;
 import com.example.ideabox.KanbanFragment.DoingFragment;
 import com.example.ideabox.KanbanFragment.ForFunFragment;
 import com.example.ideabox.KanbanFragment.UnlistedFragment;
 import com.example.ideabox.Model.Idea;
+import com.example.ideabox.Serializer.ObjectSerializer;
 
 import java.util.ArrayList;
 
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             while (c != null) {
                 //Log.i("Name: ", c.getString(nameIndex));
-                //Log.i("Data: ", com.example.ideabox.ObjectSerializer.deserialize(c.getBlob(ideaIndex)).toString());
+                //Log.i("Data: ", com.example.ideabox.Serializer.ObjectSerializer.deserialize(c.getBlob(ideaIndex)).toString());
                 //Log.i("Id: ", Integer.toString(c.getInt(idIndex)));
                 //put into ideaList
                 Idea idea = (Idea) ObjectSerializer.deserialize(c.getBlob(ideaIndex));
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
     public void displayDB(){
         Cursor c = eventsDB.rawQuery("SELECT * FROM Idea", null);
         int nameIndex = c.getColumnIndex("name");
