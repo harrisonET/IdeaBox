@@ -50,7 +50,7 @@ public class UnlistedFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ideaAdapter = new IdeaAdapter(MainActivity.uIdeaList);
+        ideaAdapter = new IdeaAdapter(getContext(),MainActivity.uIdeaList);
         recyclerView.setAdapter(ideaAdapter);
         return view;
     }

@@ -26,7 +26,7 @@ public class DoingFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ideaAdapter = new IdeaAdapter(MainActivity.dIdeaList);
+        ideaAdapter = new IdeaAdapter(getContext(),MainActivity.dIdeaList);
         recyclerView.setAdapter(ideaAdapter);
         return view;
     }

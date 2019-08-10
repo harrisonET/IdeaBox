@@ -26,7 +26,7 @@ public class ForFunFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ideaAdapter = new IdeaAdapter(MainActivity.fIdeaList);
+        ideaAdapter = new IdeaAdapter(getContext(),MainActivity.fIdeaList);
         recyclerView.setAdapter(ideaAdapter);
         return view;
     }
