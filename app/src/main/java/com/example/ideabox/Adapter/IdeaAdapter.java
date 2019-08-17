@@ -20,6 +20,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ideabox.EditActivity;
 import com.example.ideabox.KanbanFragment.DoingFragment;
 import com.example.ideabox.KanbanFragment.ForFunFragment;
 import com.example.ideabox.KanbanFragment.UnlistedFragment;
@@ -27,6 +28,7 @@ import com.example.ideabox.MainActivity;
 import com.example.ideabox.Model.Idea;
 import com.example.ideabox.R;
 import com.example.ideabox.Serializer.ObjectSerializer;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -61,7 +63,9 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.ViewHolder> {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
-                            case R.id.menu_edit: break;
+                            case R.id.menu_edit:
+                                editIdea(idea);
+                                break;
                             case R.id.menu_delete:
                                 deleteIdea(idea);
                                 break;
@@ -72,6 +76,13 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.ViewHolder> {
                 popupMenu.show();
             }
         });
+
+    }
+
+    public void editIdea(Idea idea){
+        Intent intent = new Intent(context, EditActivity.class);
+        intent.putExtra("idea", (new Gson()).toJson(idea));
+        context.startActivity(intent);
 
     }
 

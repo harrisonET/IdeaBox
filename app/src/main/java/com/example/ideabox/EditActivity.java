@@ -10,30 +10,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ideabox.Model.Idea;
+import com.google.gson.Gson;
+
 public class EditActivity extends AppCompatActivity {
-    TextView titleTxtView;
-    EditText descEditTxt;
-    SharedPreferences sharedPreferences;
+    EditText ideaEditTxt,descEditTxt;
+    TextView displayCatView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-         titleTxtView = (TextView) findViewById(R.id.titleTxtView);
+         ideaEditTxt = (EditText) findViewById(R.id.ideaEditTxt);
          descEditTxt = (EditText) findViewById(R.id.descEditTxt);
-         sharedPreferences = this.getSharedPreferences("com.example.ideabox", Context.MODE_PRIVATE);
-         String title = getIntent().getStringExtra("title");
-         titleTxtView.setText(title);
-         descEditTxt.setText(sharedPreferences.getString(title,"Not found!"));
+         displayCatView  = (TextView)findViewById(R.id.displayCatView);
+         String ideaStr = getIntent().getStringExtra("idea");
+         Idea editedIdea = new Gson().fromJson(ideaStr,Idea.class);
+         ideaEditTxt.setText(editedIdea.getName());
+         descEditTxt.setText(editedIdea.getDescription());
+         displayCatView.setText(editedIdea.getCategory());
+
     }
 
     public void edit(View view){
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+/*        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(titleTxtView.getText().toString(),descEditTxt.getText().toString());
         editor.commit();
         Toast.makeText(getApplicationContext(),"Successfully edited!",Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+        */
     }
 
 }
