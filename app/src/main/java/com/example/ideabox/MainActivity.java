@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
-    SectionsPageAdapter sectionsPageAdapter;
-    static Fragment unlistedF;
-    static Fragment forFunF;
-    static Fragment doingF;
-    static SQLiteDatabase eventsDB;
+    public static SectionsPageAdapter sectionsPageAdapter;
+    public static Fragment unlistedF;
+    public static Fragment forFunF;
+    public static Fragment doingF;
+    public static SQLiteDatabase eventsDB;
     //idea list for each category
     public static ArrayList<Idea>uIdeaList;
     public static ArrayList<Idea>fIdeaList;

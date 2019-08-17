@@ -1,7 +1,12 @@
 package com.example.ideabox.Adapter;
 
+import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 
 import android.util.Log;
@@ -15,8 +20,14 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ideabox.KanbanFragment.DoingFragment;
+import com.example.ideabox.KanbanFragment.ForFunFragment;
+import com.example.ideabox.KanbanFragment.UnlistedFragment;
+import com.example.ideabox.MainActivity;
 import com.example.ideabox.Model.Idea;
 import com.example.ideabox.R;
+import com.example.ideabox.Serializer.ObjectSerializer;
+
 import java.util.ArrayList;
 
 public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.ViewHolder> {
@@ -51,7 +62,9 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.ViewHolder> {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.menu_edit: break;
-                            case R.id.menu_delete: break;
+                            case R.id.menu_delete:
+                                deleteIdea(idea);
+                                break;
                         }
                         return false;
                     }
@@ -60,6 +73,27 @@ public class IdeaAdapter extends RecyclerView.Adapter<IdeaAdapter.ViewHolder> {
             }
         });
 
+    }
+
+    public void deleteIdea(Idea idea){
+        String sql = "DELETE FROM Idea WHERE name=?";
+        SQLiteStatement statement = MainActivity.eventsDB.compileStatement(sql);
+        statement.bindString(1, idea.getName());
+        statement.execute();
+        ideaList.remove(idea);
+
+        switch (idea.getCategory()){
+            case "Unlisted":
+                ((UnlistedFragment) MainActivity.unlistedF).refreshAdapter();
+                break;
+            case "For Fun":
+                ((ForFunFragment) MainActivity.forFunF).refreshAdapter();
+                break;
+            case "Doing":
+                ((DoingFragment) MainActivity.doingF).refreshAdapter();
+                break;
+                default:Log.i("IDEAADAPTER","ERROR NOT FOUND");
+        }
     }
 
     @Override

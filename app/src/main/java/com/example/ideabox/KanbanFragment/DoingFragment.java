@@ -9,12 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.ideabox.Adapter.IdeaAdapter;
 import com.example.ideabox.MainActivity;
 import com.example.ideabox.R;
 
-public class DoingFragment extends Fragment {
+public class DoingFragment extends Fragment{
     RecyclerView recyclerView;
     IdeaAdapter ideaAdapter;
     View view;
@@ -31,6 +30,9 @@ public class DoingFragment extends Fragment {
         return view;
     }
 
+    public void refreshAdapter(){
+        ideaAdapter.notifyDataSetChanged();
+    }
 
 
 }

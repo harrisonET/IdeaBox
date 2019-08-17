@@ -30,4 +30,9 @@ public class ForFunFragment extends Fragment {
         recyclerView.setAdapter(ideaAdapter);
         return view;
     }
+
+    public void refreshAdapter(){
+        ideaAdapter.notifyDataSetChanged();
+    }
+
 }
