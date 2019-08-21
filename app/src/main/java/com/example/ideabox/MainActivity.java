@@ -17,12 +17,13 @@ import com.example.ideabox.Adapter.SectionsPageAdapter;
 import com.example.ideabox.KanbanFragment.DoingFragment;
 import com.example.ideabox.KanbanFragment.ForFunFragment;
 import com.example.ideabox.KanbanFragment.UnlistedFragment;
+import com.example.ideabox.Model.GeneralActivity;
 import com.example.ideabox.Model.Idea;
 import com.example.ideabox.Serializer.ObjectSerializer;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends GeneralActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -170,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
         sectionsPageAdapter.addFragment(doingF, "Doing");
         viewPager.setAdapter(sectionsPageAdapter);
     }
-
 
     public void goToEditView(View view){
         TextView textView = (TextView) view;

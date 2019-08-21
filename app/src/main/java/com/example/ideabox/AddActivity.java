@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ideabox.Model.GeneralActivity;
 import com.example.ideabox.Model.Idea;
 import com.example.ideabox.Model.Milestone;
 import com.example.ideabox.Serializer.ObjectSerializer;

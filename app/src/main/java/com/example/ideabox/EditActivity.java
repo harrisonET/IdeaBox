@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ideabox.Model.GeneralActivity;
 import com.example.ideabox.Model.Idea;
 import com.google.gson.Gson;
 
