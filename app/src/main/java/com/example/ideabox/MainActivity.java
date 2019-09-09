@@ -181,4 +181,8 @@ public class MainActivity extends GeneralActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:paddingBottom="16dp"
-    tools:context=".AddActivity">
+    tools:context=".EditActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -114,7 +114,7 @@
                 android:layout_marginStart="61dp"
                 android:layout_marginLeft="61dp"
                 android:layout_marginTop="1200dp"
-                android:onClick="addNew"
+                android:onClick="edit"
                 android:text="Edit Idea"
                 android:textSize="24sp" />
 
